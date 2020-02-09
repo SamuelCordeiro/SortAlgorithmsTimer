@@ -24,7 +24,8 @@ public class FXMLMainScreenController implements Initializable{
     private Spinner<Integer> vectorSize = new Spinner<Integer>();
 	private ArrayList<DataTypes> dataTypesList = new ArrayList<>();
 	private ObservableList<DataTypes> obsDataTypes;
-	
+	static DataTypes selectedDataType;
+	static Integer size;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -34,16 +35,16 @@ public class FXMLMainScreenController implements Initializable{
 	
 	@FXML
 	void runButtonEvent(ActionEvent event) {
-		DataTypes selectedDataType = cbDataType.getSelectionModel().getSelectedItem();
-		Integer size = vectorSize.getValue();
+		selectedDataType = cbDataType.getSelectionModel().getSelectedItem();
+		size = vectorSize.getValue();
 	}
 	
 	private void loadComboBox() {
-		DataTypes character = new DataTypes(1,"Character");
+		DataTypes characterData = new DataTypes(1,"Character");
 		DataTypes doubleData = new DataTypes(2, "Double");
 		DataTypes integerData = new DataTypes(3, "Integer");
 		DataTypes stringData = new DataTypes(4, "String");
-		dataTypesList.add(character);
+		dataTypesList.add(characterData);
 		dataTypesList.add(doubleData);
 		dataTypesList.add(integerData);
 		dataTypesList.add(stringData);
@@ -54,6 +55,5 @@ public class FXMLMainScreenController implements Initializable{
 		SpinnerValueFactory<Integer> valueFactory = //
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(10, 1000000000, 10);
 		vectorSize.setValueFactory(valueFactory);
-	}
-	
+	}	
 }

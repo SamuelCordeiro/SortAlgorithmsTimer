@@ -2,7 +2,7 @@ package resources;
 
 import java.util.Random;
 
-public class VectorFactory<T> {
+public class VectorFactory {
 
 	static Random generator = new Random();
 
