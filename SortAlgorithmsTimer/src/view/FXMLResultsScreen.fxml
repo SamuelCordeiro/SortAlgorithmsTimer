@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLResultsScreenController">
+   <children>
+      <TableView fx:id="TVResultsScreen" layoutX="38.0" layoutY="25.0" prefHeight="250.0" prefWidth="230.0">
+        <columns>
+          <TableColumn fx:id="TCSorters" prefWidth="115.0" text="Sorters" />
+          <TableColumn fx:id="TCTime" prefWidth="115.0" text="Time" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </children>
+</AnchorPane>
