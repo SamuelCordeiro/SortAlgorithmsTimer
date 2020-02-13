@@ -3,7 +3,6 @@ package controller;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
+import main.Main;
 import model.DataTypes;
 
 public class FXMLMainScreenController implements Initializable{
@@ -24,9 +24,9 @@ public class FXMLMainScreenController implements Initializable{
     private Spinner<Integer> vectorSize = new Spinner<Integer>();
 	private ArrayList<DataTypes> dataTypesList = new ArrayList<>();
 	private ObservableList<DataTypes> obsDataTypes;
-	static DataTypes selectedDataType;
-	static Integer size;
-
+	public static String selectedDataType = null;
+	public static Integer size = 0;
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		loadComboBox();
@@ -35,8 +35,10 @@ public class FXMLMainScreenController implements Initializable{
 	
 	@FXML
 	void runButtonEvent(ActionEvent event) {
-		selectedDataType = cbDataType.getSelectionModel().getSelectedItem();
+		selectedDataType = cbDataType.getSelectionModel().getSelectedItem().getDataType();
 		size = vectorSize.getValue();
+		FXMLResultsScreenController.stc.calculateTime(selectedDataType, size);
+		Main.changeScreen("FXMLResultsScreen");
 	}
 	
 	private void loadComboBox() {
@@ -51,6 +53,7 @@ public class FXMLMainScreenController implements Initializable{
 		obsDataTypes =FXCollections.observableArrayList(dataTypesList);
 		cbDataType.setItems(obsDataTypes);
 	}
+	
 	private void loadSpinner() {
 		SpinnerValueFactory<Integer> valueFactory = //
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(10, 1000000000, 10);
