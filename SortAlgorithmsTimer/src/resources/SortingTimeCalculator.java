@@ -16,137 +16,162 @@ public class SortingTimeCalculator {
 	private long quickSortTime;
 	private long selectionSortTime;
 	private long shellSortTime;
-	
+
 
 	public void calculateTime(String dataType, int size) {
 		switch (dataType) {
 		case "Character": {
+			Character[] vector = VectorFactory.characterVectorFactory(size);
+			startTime = System.nanoTime();
+			BubbleSort.sort(vector);
+			finalTime = System.nanoTime();
+			bubbleSortTime = finalTime - startTime;
+			
+			vector = VectorFactory.characterVectorFactory(size);
 			startTime = System.currentTimeMillis();
-			BubbleSort.sort(VectorFactory.characterVectorFactory(size));
+			InsertionSort.sort(vector);
 			finalTime = System.currentTimeMillis();
-			bubbleSortTime = startTime - finalTime/ 1000;
+			insertionSortTime = finalTime - startTime;
+			
+			vector = VectorFactory.characterVectorFactory(size);
+			/*startTime = System.currentTimeMillis();
+			MergeSort.sort(characterVector);
+			finalTime = System.currentTimeMillis();
+			mergeSortTime = ((startTime - finalTime)/ 1000);*/
 
+			vector = VectorFactory.characterVectorFactory(size);
 			startTime = System.currentTimeMillis();
-			InsertionSort.sort(VectorFactory.characterVectorFactory(size));
+			QuickSort.sort(vector);
 			finalTime = System.currentTimeMillis();
-			insertionSortTime = startTime - finalTime/ 1000;
-
+			quickSortTime = finalTime - startTime;
+			
+			vector = VectorFactory.characterVectorFactory(size);
 			startTime = System.currentTimeMillis();
-			MergeSort.sort(VectorFactory.characterVectorFactory(size));
+			SelectionSort.sort(vector);
 			finalTime = System.currentTimeMillis();
-			mergeSortTime = startTime - finalTime/ 1000;
-
+			selectionSortTime = finalTime - startTime;
+			
+			vector = VectorFactory.characterVectorFactory(size);
 			startTime = System.currentTimeMillis();
-			QuickSort.sort(VectorFactory.characterVectorFactory(size));
+			ShellSort.sort(vector);
 			finalTime = System.currentTimeMillis();
-			quickSortTime = startTime - finalTime/ 1000;
-
-			startTime = System.currentTimeMillis();
-			SelectionSort.sort(VectorFactory.characterVectorFactory(size));
-			finalTime = System.currentTimeMillis();
-			selectionSortTime = startTime - finalTime/ 1000;
-
-			startTime = System.currentTimeMillis();
-			ShellSort.sort(VectorFactory.characterVectorFactory(size));
-			finalTime = System.currentTimeMillis();
-			shellSortTime = startTime - finalTime/ 1000;
+			shellSortTime = finalTime - startTime;
+			break;
 		}
 		case "Double":{
+			Double[] vector = VectorFactory.doubleVectorFactory(size);
+			startTime = System.nanoTime();
+			BubbleSort.sort(vector);
+			finalTime = System.nanoTime();
+			bubbleSortTime = finalTime - startTime;
+			
+			vector = VectorFactory.doubleVectorFactory(size);
 			startTime = System.currentTimeMillis();
-			BubbleSort.sort(VectorFactory.doubleVectorFactory(size));
+			InsertionSort.sort(vector);
 			finalTime = System.currentTimeMillis();
-			bubbleSortTime = startTime - finalTime/ 1000;
-
+			insertionSortTime = finalTime - startTime;
+			
+			vector = VectorFactory.doubleVectorFactory(size);
+			/*startTime = System.currentTimeMillis();
+			MergeSort.sort(vector);
+			finalTime = System.currentTimeMillis();*/
+			
+			vector = VectorFactory.doubleVectorFactory(size);
 			startTime = System.currentTimeMillis();
-			InsertionSort.sort(VectorFactory.doubleVectorFactory(size));
+			QuickSort.sort(vector);
 			finalTime = System.currentTimeMillis();
-			insertionSortTime = startTime - finalTime/ 1000;
-
+			quickSortTime = finalTime - startTime;
+			
+			vector = VectorFactory.doubleVectorFactory(size);
 			startTime = System.currentTimeMillis();
-			MergeSort.sort(VectorFactory.doubleVectorFactory(size));
+			SelectionSort.sort(vector);
 			finalTime = System.currentTimeMillis();
-			mergeSortTime = startTime - finalTime/ 1000;
-
+			selectionSortTime = finalTime - startTime;
+			
+			vector = VectorFactory.doubleVectorFactory(size);
 			startTime = System.currentTimeMillis();
-			QuickSort.sort(VectorFactory.doubleVectorFactory(size));
+			ShellSort.sort(vector);
 			finalTime = System.currentTimeMillis();
-			quickSortTime = startTime - finalTime/ 1000;
-
-			startTime = System.currentTimeMillis();
-			SelectionSort.sort(VectorFactory.doubleVectorFactory(size));
-			finalTime = System.currentTimeMillis();
-			selectionSortTime = startTime - finalTime/ 1000;
-
-			startTime = System.currentTimeMillis();
-			ShellSort.sort(VectorFactory.doubleVectorFactory(size));
-			finalTime = System.currentTimeMillis();
-			shellSortTime = startTime - finalTime/ 1000;
+			shellSortTime = finalTime - startTime;
+			break;
 		}
 		case "Integer":{
+			Integer[] vector = VectorFactory.integerVectorFactory(size);
+			startTime = System.nanoTime();
+			BubbleSort.sort(vector);
+			finalTime = System.nanoTime();
+			bubbleSortTime = finalTime - startTime;
+			
+			vector = VectorFactory.integerVectorFactory(size);
 			startTime = System.currentTimeMillis();
-			BubbleSort.sort(VectorFactory.integerVectorFactory(size));
+			InsertionSort.sort(vector);
 			finalTime = System.currentTimeMillis();
-			bubbleSortTime = startTime - finalTime/ 1000;
-
+			insertionSortTime = finalTime - startTime;
+			
+			vector = VectorFactory.integerVectorFactory(size);
+			/*startTime = System.currentTimeMillis();
+			MergeSort.sort(vector);
+			finalTime = System.currentTimeMillis();*/
+			
+			vector = VectorFactory.integerVectorFactory(size);
 			startTime = System.currentTimeMillis();
-			InsertionSort.sort(VectorFactory.integerVectorFactory(size));
+			QuickSort.sort(vector);
 			finalTime = System.currentTimeMillis();
-			insertionSortTime = startTime - finalTime/ 1000;
-
+			quickSortTime = finalTime - startTime;
+			
+			vector = VectorFactory.integerVectorFactory(size);
 			startTime = System.currentTimeMillis();
-			MergeSort.sort(VectorFactory.integerVectorFactory(size));
+			SelectionSort.sort(vector);
 			finalTime = System.currentTimeMillis();
-			mergeSortTime = startTime - finalTime/ 1000;
-
+			selectionSortTime = finalTime - startTime;
+			
+			vector = VectorFactory.integerVectorFactory(size);
 			startTime = System.currentTimeMillis();
-			QuickSort.sort(VectorFactory.integerVectorFactory(size));
+			ShellSort.sort(vector);
 			finalTime = System.currentTimeMillis();
-			quickSortTime = startTime - finalTime/ 1000;
-
-			startTime = System.currentTimeMillis();
-			SelectionSort.sort(VectorFactory.integerVectorFactory(size));
-			finalTime = System.currentTimeMillis();
-			selectionSortTime = startTime - finalTime/ 1000;
-
-			startTime = System.currentTimeMillis();
-			ShellSort.sort(VectorFactory.integerVectorFactory(size));
-			finalTime = System.currentTimeMillis();
-			shellSortTime = startTime - finalTime/ 1000;
+			shellSortTime = finalTime - startTime;
+			break;
 		}
 		case "String":{
+			String[] vector = VectorFactory.stringVectorFactory(size);
+			startTime = System.nanoTime();
+			BubbleSort.sort(vector);
+			finalTime = System.nanoTime();
+			bubbleSortTime = finalTime - startTime;
+			
+			vector = VectorFactory.stringVectorFactory(size);
 			startTime = System.currentTimeMillis();
-			BubbleSort.sort(VectorFactory.stringVectorFactory(size));
+			InsertionSort.sort(vector);
 			finalTime = System.currentTimeMillis();
-			bubbleSortTime = startTime - finalTime/ 1000;
-
+			insertionSortTime = finalTime - startTime;
+			
+			vector = VectorFactory.stringVectorFactory(size);
+			/*startTime = System.currentTimeMillis();
+			MergeSort.sort(vector);
+			finalTime = System.currentTimeMillis();*/
+			
+			vector = VectorFactory.stringVectorFactory(size);
 			startTime = System.currentTimeMillis();
-			InsertionSort.sort(VectorFactory.stringVectorFactory(size));
+			QuickSort.sort(vector);
 			finalTime = System.currentTimeMillis();
-			insertionSortTime = startTime - finalTime/ 1000;
-
+			quickSortTime = finalTime - startTime;
+			
+			vector = VectorFactory.stringVectorFactory(size);
 			startTime = System.currentTimeMillis();
-			MergeSort.sort(VectorFactory.stringVectorFactory(size));
+			SelectionSort.sort(vector);
 			finalTime = System.currentTimeMillis();
-			mergeSortTime = startTime - finalTime/ 1000;
-
+			selectionSortTime = finalTime - startTime;
+			
+			vector = VectorFactory.stringVectorFactory(size);
 			startTime = System.currentTimeMillis();
-			QuickSort.sort(VectorFactory.stringVectorFactory(size));
+			ShellSort.sort(vector);
 			finalTime = System.currentTimeMillis();
-			quickSortTime = startTime - finalTime/ 1000;
-
-			startTime = System.currentTimeMillis();
-			SelectionSort.sort(VectorFactory.stringVectorFactory(size));
-			finalTime = System.currentTimeMillis();
-			selectionSortTime = startTime - finalTime/ 1000;
-
-			startTime = System.currentTimeMillis();
-			ShellSort.sort(VectorFactory.stringVectorFactory(size));
-			finalTime = System.currentTimeMillis();
-			shellSortTime = startTime - finalTime/ 1000;
+			shellSortTime = finalTime - startTime;
+			break;
 		}
 		}
 	}
-	
+
 	public long getBubbleSortTime() {
 		return bubbleSortTime;
 	}
