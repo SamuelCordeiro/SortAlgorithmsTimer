@@ -1,20 +1,20 @@
 package model;
 
 public class ShellSort {
-	public static <T extends Comparable<T>> void sort(T[] vetor) {
+	public static <T extends Comparable<T>> void sort(T[] vector) {
 		
-		for (int gap = vetor.length / 2; gap > 0; gap /= 2)
+		for (int gapSize = vector.length / 2; gapSize > 0; gapSize /= 2)
         {
-            for (int indice = gap; indice < vetor.length; indice++)
+            for (int currentIndex = gapSize; currentIndex < vector.length; currentIndex++)
             {
-                int indiceAux = indice;
-                T aux = vetor[indice];
-                while (indiceAux >= gap && vetor[indiceAux - gap].compareTo(aux) > 0)
+                int currentIndexCopy = currentIndex;
+                T temp = vector[currentIndex];
+                while (currentIndexCopy >= gapSize && vector[currentIndexCopy - gapSize].compareTo(temp) > 0)
                 {
-                    vetor[indiceAux] = vetor[indiceAux - gap];
-                    indiceAux -= gap;
+                    vector[currentIndexCopy] = vector[currentIndexCopy - gapSize];
+                    currentIndexCopy -= gapSize;
                 }
-                vetor[indiceAux] = aux;
+                vector[currentIndexCopy] = temp;
             }
         }
     }

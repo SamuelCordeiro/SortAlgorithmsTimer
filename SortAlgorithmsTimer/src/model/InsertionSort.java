@@ -1,17 +1,17 @@
 package model;
 
 public class InsertionSort {
-	public static <T extends Comparable<T>> void sort(T vetor[]){
-		T aux;
+	public static <T extends Comparable<T>> void sort(T vector[]){
+		T temp;
 		int j;
-		for (int i = 1; i < vetor.length; i++) {
-			aux = vetor[i];
+		for (int i = 1; i < vector.length; i++) {
+			temp = vector[i];
 			j = i-1;
-			while((j >= 0) && (vetor[j].compareTo(aux) > 0)) {
-				vetor[j + 1] = vetor[j];
+			while((j >= 0) && (vector[j].compareTo(temp) > 0)) {
+				vector[j + 1] = vector[j];
 				j--;
 			}
-			vetor[j+1] = aux;
+			vector[j+1] = temp;
 		}
 		
 	}

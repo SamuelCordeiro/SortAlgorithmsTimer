@@ -1,39 +1,39 @@
 package model;
 
 public class QuickSort<T> {
-	public static <T extends Comparable<T>> void sort(T vetor[]) {
-		quickSort(vetor, 0, vetor.length -1);
+	public static <T extends Comparable<T>> void sort(T vector[]) {
+		quickSort(vector, 0, vector.length -1);
 	}
 	
-	private static<T extends Comparable<T>> void quickSort(T vetor[], int inicio, int fim){
-        if (inicio < fim)
+	private static<T extends Comparable<T>> void quickSort(T vector[], int startIndex, int endIndex){
+        if (startIndex < endIndex)
         {
-            int pivo = separar(vetor, inicio, fim);
-            quickSort(vetor, inicio, pivo);
-            quickSort(vetor, pivo + 1, fim);
+            int pivotIndex = partition(vector, startIndex, endIndex);
+            quickSort(vector, startIndex, pivotIndex);
+            quickSort(vector, pivotIndex + 1, endIndex);
         }
     }
 
-    private static <T extends Comparable<T>> int separar(T vetor[], int inicio, int fim){
-        int pivo = (inicio + fim) / 2;
-        T aux = vetor[pivo];
-        inicio--;
-        fim++;
+    private static <T extends Comparable<T>> int partition(T vector[], int startIndex, int endIndex){
+        int pivotIndex = (startIndex + endIndex) / 2;
+        T pivotValue = vector[pivotIndex];
+        startIndex--;
+        endIndex++;
         
         while (true){
             do {
-            	inicio++; 
-            }while (vetor[inicio].compareTo(aux) < 0) ;
+            	startIndex++; 
+            }while (vector[startIndex].compareTo(pivotValue) < 0) ;
             do { 
-            	fim--; 
-            }while (vetor[fim].compareTo(aux) > 0) ;
+            	endIndex--; 
+            }while (vector[endIndex].compareTo(pivotValue) > 0) ;
             
-            if (inicio >= fim) { 
-            	return fim;
+            if (startIndex >= endIndex) { 
+            	return endIndex;
             }
-            T temp = vetor[inicio];
-            vetor[inicio] = vetor[fim];
-            vetor[fim] = temp;
+            T temp = vector[startIndex];
+            vector[startIndex] = vector[endIndex];
+            vector[endIndex] = temp;
         }
     }
 }
