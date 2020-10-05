@@ -60,7 +60,7 @@ public class FXMLResultsScreenController implements Initializable {
 		resultDataList.add(insertionTime);
 		resultDataList.add(mergeTime);
 		resultDataList.add(quickTime);
-		resultDataList.add(selectionTime);
+		resultDataList.add(selectionTime); 
 		resultDataList.add(shellTime);
 		obsResultData = FXCollections.observableArrayList(resultDataList);
 		TVResultsScreen.setItems(obsResultData);
